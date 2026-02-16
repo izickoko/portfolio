@@ -41,8 +41,20 @@ window.addEventListener('scroll', () => {
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        
+        //  To skip if it's just '#' (like the logo link)
+        if (href === '#' || href.length <= 1) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            return;
+        }
+        
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         
         if (target) {
             const offsetTop = target.offsetTop - 80; // Account for fixed navbar
