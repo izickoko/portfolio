@@ -151,7 +151,7 @@ body {
     background-size: 50px 50px, 80px 80px;
     background-position: 0 0, 25px 25px;
     pointer-events: none;
-    opacity: 0.4;
+    opacity: 1;
 }
 
 /* Connecting lines (molecular bonds) */
@@ -164,7 +164,7 @@ body {
         linear-gradient(0deg, transparent 49.5%, rgba(0, 255, 136, 0.05) 49.5%, rgba(0, 255, 136, 0.05) 50.5%, transparent 50.5%);
     background-size: 100px 100px, 100px 100px;
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 0.9;
     animation: bondMove 20s linear infinite;
 }
 
@@ -445,7 +445,7 @@ section {
     position: absolute;
     inset: 0;
    background-image: 
-        radial-gradient(circle, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
+        radial-gradient(circle, rgba(0, 255, 136, 0.05) 2px, transparent 1px);
     background-size: 30px 30px;
     pointer-events: none;
     opacity: 1;
@@ -509,7 +509,7 @@ section {
     bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.3;
+    opacity: 0.8;
     pointer-events: none;
 }
 
@@ -530,7 +530,7 @@ section {
 }
 
 @keyframes bondPulse {
-    0%, 100% { opacity: 0.4; transform: translateX(-50%) scaleY(1); }
+    0%, 100% { opacity: 1; transform: translateX(-50%) scaleY(1); }
     50% { opacity: 1; transform: translateX(-50%) scaleY(1.2); }
 }
 
