@@ -2,41 +2,45 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+}
 
 // Navbar scroll effect
 let lastScroll = 0;
 const nav = document.querySelector('.nav');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll <= 0) {
-        nav.style.transform = 'translateY(0)';
-        return;
-    }
-    
-    if (currentScroll > lastScroll && currentScroll > 100) {
-        // Scrolling down
-        nav.style.transform = 'translateY(-100%)';
-    } else {
-        // Scrolling up
-        nav.style.transform = 'translateY(0)';
-    }
-    
-    lastScroll = currentScroll;
-});
+if (nav) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            nav.style.transform = 'translateY(0)';
+            return;
+        }
+        
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scrolling down
+            nav.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up
+            nav.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
